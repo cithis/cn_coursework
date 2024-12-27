@@ -1,0 +1,27 @@
+{
+  "name": "cn-coursework",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "rsbuild dev --open",
+    "build": "rsbuild build",
+    "preview": "rsbuild preview"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "^1.1.8",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "@msagl/core": "^1.1.23",
+    "@types/three": "^0.171.0",
+    "7.css": "^0.17.0",
+    "coffeescript": "^2.7.0",
+    "downloadjs": "^1.4.7",
+    "exceljs": "^4.4.0",
+    "gsap": "^3.12.5",
+    "howler": "^2.2.4",
+    "ipaddr.js": "^2.2.0",
+    "three": "^0.171.0",
+    "ts-proto": "^2.6.0"
+  }
+}

@@ -1,0 +1,37 @@
+* {
+    user-select: none;
+}
+
+body {
+    margin: 0;
+}
+
+#networkView {
+    background-color: #FFF;
+    height: calc(100vh - 31px);
+    width: 100vw;
+}
+
+.dialog {
+    position: fixed !important;
+}
+
+.hasOpenDialog {
+    filter: brightness(0.7) grayscale(1);
+    transition: filter 120ms ease-in;
+}
+
+.title-bar-controls button {
+    cursor: pointer;
+}
+
+ul [role="menuitem"] img {
+    width: 22px;
+    height: 22px;
+}
+
+.test-runner-tbl :is(th, td) {
+    border: 2px solid black;
+    font-family: 'Tahoma', sans-serif;
+    padding: 6px;
+}

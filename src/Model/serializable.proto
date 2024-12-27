@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+message EntityCoordinates {
+  sfixed32 x = 1;
+  sfixed32 y = 2;
+}
+
+message Router {
+  string hostname = 1;
+  string lanIpAddr = 2;
+  string extIpAddr = 3;
+
+  EntityCoordinates coords = 4;
+}
+
+message Endpoint {
+  string hostname = 1;
+  string ipAddr = 2;
+
+  EntityCoordinates coords = 3;
+}
+
+enum GadgetType {
+  Suisei = 0;
+}
+
+message Gadget {
+  string name = 1;
+  GadgetType type = 2;
+
+  EntityCoordinates coords = 3;
+}
+
+enum ConnectionType {
+  OpticFiber = 0;
+  Satellite = 1;
+}
+
+message Connection {
+  string name = 1;
+  string from = 2;
+  string to = 3;
+  uint32 weight = 4;
+  bool duplex = 5;
+  uint32 errors = 6;
+  bool highlighted = 7;
+  ConnectionType type = 8;
+}
+
+message ModelSnapshot {
+  repeated Endpoint endpoints = 1;
+  repeated Router routers = 2;
+  repeated Gadget gadgets = 3;
+  repeated Connection connections = 4;
+}
