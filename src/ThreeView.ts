@@ -60,6 +60,7 @@ export type ThreeViewSounds = {
 enum ViewState {
     Ready,
     Dragging,
+    Importing,
     Connecting
 }
 
@@ -258,7 +259,8 @@ export class ThreeView {
             label: textMesh,
         };
 
-        this.sounds.connCreate.play();
+        if (this.state != ViewState.Importing)
+            this.sounds.connCreate.play();
     }
 
     protected onConnectionChanged(conn: Connection): void {
@@ -698,12 +700,15 @@ export class ThreeView {
         let snap = new Uint8Array(await file.arrayBuffer());
 
         try {
+            this.state = ViewState.Importing;
             this.model.snapshot = snap;
         } catch (e) {
             let err = (e as Error).message;
             err = `Error while importing snapshot: ${err}`;
             await new DialogTextBox("Import error", err, this.canvas, DIALOG_BOX_CLOSABLE | DIALOG_BOX_MODAL).display();
         }
+
+        this.state = ViewState.Ready;
     }
 
     protected async onTraceRequest(): Promise<void> {

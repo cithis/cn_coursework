@@ -30,7 +30,7 @@ export function getGraphContextMenuItems(): ContextMenuItemList {
                 enabled: true,
                 nested: [[{
                     id: "genNetwork",
-                    sprite: "/ico/32/workgroup.png",
+                    sprite: "./ico/32/workgroup.png",
                     label: "Regional Network",
                     enabled: true,
                     nested: null
@@ -44,21 +44,21 @@ export function getGraphContextMenuItems(): ContextMenuItemList {
                 nested: [[
                     {
                         id: "newRouter",
-                        sprite: "/ico/32/switch.png",
+                        sprite: "./ico/32/switch.png",
                         label: "Router",
                         enabled: true,
                         nested: null
                     },
                     {
                         id: "newEndpoint",
-                        sprite: "/ico/32/endpoint.png",
+                        sprite: "./ico/32/endpoint.png",
                         label: "Endpoint",
                         enabled: true,
                         nested: null
                     },
                     {
                         id: null,
-                        sprite: "/ico/32/silly.png",
+                        sprite: "./ico/32/silly.png",
                         label: "Decorations",
                         enabled: true,
                         nested: [[
@@ -80,13 +80,13 @@ export function getGraphContextMenuItems(): ContextMenuItemList {
 export function getDeviceContextMenuItems(): ContextMenuItemList {
     return [[{
         id: "connect",
-        sprite: "/ico/32/patchcord.png",
+        sprite: "./ico/32/patchcord.png",
         label: "Connect",
         enabled: true,
         nested: null
     }, {
         id: "properties",
-        sprite: "/ico/32/properties.png",
+        sprite: "./ico/32/properties.png",
         label: "Properties",
         enabled: true,
         nested: null
@@ -102,7 +102,7 @@ export function getDeviceContextMenuItems(): ContextMenuItemList {
 export function getConnectionContextMenuSettings(): ContextMenuItemList {
     return [[{
         id: "properties",
-        sprite: "/ico/32/properties.png",
+        sprite: "./ico/32/properties.png",
         label: "Properties",
         enabled: true,
         nested: null

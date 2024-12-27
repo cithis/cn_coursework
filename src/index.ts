@@ -13,26 +13,26 @@ let loader = new THREE.TextureLoader();
 let fontLoader = new FontLoader();
 
 try {
-    let endpointTexture = await loader.loadAsync("/ico/256/endpoint.png");
+    let endpointTexture = await loader.loadAsync("./ico/256/endpoint.png");
     endpointTexture.colorSpace = "srgb";
 
-    let routerTexture = await loader.loadAsync("/ico/256/switch.png");
+    let routerTexture = await loader.loadAsync("./ico/256/switch.png");
     routerTexture.colorSpace = "srgb";
 
     textures.endpoint = new THREE.MeshBasicMaterial({ map: endpointTexture, transparent: true });
     textures.router = new THREE.MeshBasicMaterial({ map: routerTexture, transparent: true });
-    textures.font = await fontLoader.loadAsync("/font.json");
+    textures.font = await fontLoader.loadAsync("./font.json");
 } catch (e) {
     console.log(e);
 }
 
 let connCreateSound = new Howl({
-    src: ["/sounds/conn_create.wav"],
+    src: ["./sounds/conn_create.wav"],
     html5: true
 });
 
 let connRemoveSound = new Howl({
-    src: ["/sounds/conn_remove.wav"],
+    src: ["./sounds/conn_remove.wav"],
     html5: true
 });
 
