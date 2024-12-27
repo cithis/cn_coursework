@@ -57,16 +57,18 @@ export class TopologyAddedEvent extends Event {
 }
 
 export class TopologyRemovedEvent extends Event {
+    public multi: boolean;
     public kind: string;
     public id: string;
 
-    constructor(kind: string, id: string) {
+    constructor(kind: string, id: string, multi: boolean = false) {
         super("removed", {
             bubbles: false,
             cancelable: false,
             composed: true
         });
 
+        this.multi = multi;
         this.kind = kind;
         this.id = id;
     }

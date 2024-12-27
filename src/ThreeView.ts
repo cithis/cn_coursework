@@ -54,7 +54,11 @@ export type ThreeViewTextures = {
 
 export type ThreeViewSounds = {
     connCreate: Howl,
-    connRemove: Howl
+    connRemove: Howl,
+    objRemove: Howl,
+    objTaken: Howl,
+    objReleased: Howl,
+    longOperationCplt: Howl,
 }
 
 enum ViewState {
@@ -309,6 +313,8 @@ export class ThreeView {
 
     protected onModelObjectRemoved(evt: TopologyRemovedEvent): void {
         this.onObjectRemoved(evt.id);
+        if (!evt.multi)
+            this.sounds.objRemove.play();
     }
 
     protected onIconDrag(evt: ({ object: Object3D } & Event)): void {
@@ -709,6 +715,7 @@ export class ThreeView {
         }
 
         this.state = ViewState.Ready;
+        this.sounds.longOperationCplt.play();
     }
 
     protected async onTraceRequest(): Promise<void> {
@@ -795,9 +802,11 @@ export class ThreeView {
         this.dragControls.addEventListener("drag", evt => this.onIconDrag(evt));
         this.dragControls.addEventListener("dragstart", _evt => {
             this.state = ViewState.Dragging;
+            this.sounds.objTaken.play();
         });
         this.dragControls.addEventListener("dragend", _evt => {
             this.state = ViewState.Ready;
+            this.sounds.objReleased.play();
         });
 
         this.renderer.setAnimationLoop(() => this.renderLoop());

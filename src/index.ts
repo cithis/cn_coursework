@@ -26,28 +26,24 @@ try {
     console.log(e);
 }
 
-let connCreateSound = new Howl({
-    src: ["./sounds/conn_create.wav"],
-    html5: true
-});
-
-let connRemoveSound = new Howl({
-    src: ["./sounds/conn_remove.wav"],
-    html5: true
+let defineSound = (url: string) => new Howl({
+    src: url,
+    html5: true,
+    volume: 0.3
 });
 
 let sounds = {
-    connCreate: connCreateSound,
-    connRemove: connRemoveSound
-}
+    connCreate: defineSound("./sounds/conn_create.wav"),
+    connRemove: defineSound("./sounds/conn_remove.wav"),
+    objTaken: defineSound("./sounds/obj_taken.wav"),
+    objRemove: defineSound("./sounds/obj_removed.wav"),
+    objReleased: defineSound("./sounds/obj_released.wav"),
+    longOperationCplt: defineSound("./sounds/chimes.wav"),
+};
 
-connCreateSound.on("load", () => {
-    connRemoveSound.on("load", async () => {
-        const topology = new TopologyModel();
+const topology = new TopologyModel();
 
-        const view = new ThreeView(topology, textures, sounds);
-        await view.init();
+const view = new ThreeView(topology, textures, sounds);
+await view.init();
 
-        document.body.append(view.canvas);
-    });
-});
+document.body.append(view.canvas);
