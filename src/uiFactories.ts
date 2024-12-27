@@ -55,21 +55,6 @@ export function getGraphContextMenuItems(): ContextMenuItemList {
                         label: "Endpoint",
                         enabled: true,
                         nested: null
-                    },
-                    {
-                        id: null,
-                        sprite: "./ico/32/silly.png",
-                        label: "Decorations",
-                        enabled: true,
-                        nested: [[
-                            {
-                                id: "suisei",
-                                sprite: null,
-                                label: "Hoshimachi Suisei",
-                                enabled: true,
-                                nested: null
-                            },
-                        ]]
                     }
                 ]]
             }
