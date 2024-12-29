@@ -129,6 +129,10 @@ export class TopologyModel implements EventTarget {
         ];
     }
 
+    public get connections(): Array<string> {
+        return this.snapshot_.connections.map(c => c.name);
+    }
+
     public get graph(): GeomGraph {
         let internalGraph = new Graph();
         let nodes: Record<string, GeomNode> = {};
